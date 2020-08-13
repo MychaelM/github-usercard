@@ -8,6 +8,7 @@ import axios from 'axios';
 axios.get(`https://api.github.com/users/MychaelM`)
   .then((res) => {
     console.log(res);
+    console.log(res.data.avatar_url);
   })
   .catch((err) => {
     console.log(`Error: `, err);
@@ -83,6 +84,24 @@ function createCard(obj) {
   cardInfo.appendChild(cardFollowing);
   cardInfo.appendChild(cardBio);
   cardProfile.appendChild(cardProfileLink);
+
+  // add styling
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  cardName.classList.add('name');
+  cardUsername.classList.add('username');
+
+  // add content
+  cardImg.src = obj.data.avatar_url;
+  cardName.textContent = obj.data.name;
+  cardUsername.textContent = obj.data.login;
+  cardLocation.textContent = obj.data.location;
+  cardProfileLink.href = obj.data.html_url;
+  cardFollowers.textContent = obj.data.followers;
+  cardFollowing.textContent = obj.data.following;
+  cardBio.textContent = obj.data.bio;
+
+  return card
 }
 
 /*
