@@ -9,6 +9,7 @@ axios.get(`https://api.github.com/users/MychaelM`)
   .then((res) => {
     console.log(res);
     console.log(res.data.avatar_url);
+    cards.appendChild(createCard(res));
   })
   .catch((err) => {
     console.log(`Error: `, err);
@@ -103,6 +104,9 @@ function createCard(obj) {
 
   return card
 }
+
+// selecting cards
+const cards = document.querySelector('.cards');
 
 /*
   List of LS Instructors Github username's:
