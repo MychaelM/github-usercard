@@ -114,11 +114,14 @@ function createCard(obj) {
   cardImg.src = obj.data.avatar_url;
   cardName.textContent = obj.data.name;
   cardUsername.textContent = obj.data.login;
-  cardLocation.textContent = obj.data.location;
+  cardLocation.textContent = `Location: ${obj.data.location}`;
+  // cardProfile.textContent = 'Profile: ';
+  cardProfileLink.textContent = `Profile: ${obj.data.html_url}`;
+  console.log(cardProfileLink);
   cardProfileLink.href = obj.data.html_url;
-  cardFollowers.textContent = obj.data.followers;
-  cardFollowing.textContent = obj.data.following;
-  cardBio.textContent = obj.data.bio;
+  cardFollowers.textContent = `Followers: ${obj.data.followers}`;
+  cardFollowing.textContent = `Following: ${obj.data.following}`;
+  cardBio.textContent = `Bio: ${obj.data.bio}`;
 
   return card
 }
